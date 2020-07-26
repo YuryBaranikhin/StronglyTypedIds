@@ -16,7 +16,7 @@ namespace StronglyTypedIds
         {
             unchecked
             {
-                return (typeof(TEntity).GetHashCode() * 23) ^ EqualityComparer<TId>.Default.GetHashCode(Value);
+                return (typeof(TEntity).GetHashCode() * 73) ^ EqualityComparer<TId>.Default.GetHashCode(Value);
             }
         }
 

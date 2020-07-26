@@ -20,7 +20,7 @@ namespace StronglyTypedIds
         {
             unchecked
             {
-                return (typeof(TEntity).GetHashCode() * 23) ^ Value.GetHashCode();
+                return (typeof(TEntity).GetHashCode() * 73) ^ Value.GetHashCode();
             }
         }
 
