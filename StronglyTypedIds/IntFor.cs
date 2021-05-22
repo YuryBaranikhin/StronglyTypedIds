@@ -2,7 +2,7 @@
 
 namespace StronglyTypedIds
 {
-    public struct IntFor<TEntity> : IEntityId<TEntity, int>, IEquatable<IntFor<TEntity>>,
+    public readonly struct IntFor<TEntity> : IEntityId<TEntity, int>, IEquatable<IntFor<TEntity>>,
         IEquatable<IEntityId<TEntity, int>>
     {
         public IntFor(int value)

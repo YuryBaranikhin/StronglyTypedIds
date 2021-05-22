@@ -2,7 +2,7 @@
 
 namespace StronglyTypedIds
 {
-    public struct GuidFor<TEntity> : IEntityId<TEntity, Guid>, IEquatable<GuidFor<TEntity>>, IEquatable<IEntityId<TEntity, Guid>>
+    public readonly struct GuidFor<TEntity> : IEntityId<TEntity, Guid>, IEquatable<GuidFor<TEntity>>, IEquatable<IEntityId<TEntity, Guid>>
     {
         public GuidFor(Guid value)
         {
