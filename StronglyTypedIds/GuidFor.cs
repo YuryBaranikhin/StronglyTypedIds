@@ -24,7 +24,7 @@ namespace StronglyTypedIds
             }
         }
 
-        public bool Equals(IEntityId<TEntity, Guid> other)
+        public bool Equals(IEntityId<TEntity, Guid>? other)
         {
             if (ReferenceEquals(other, null)) return false;
             return Value.Equals(other.Value);
