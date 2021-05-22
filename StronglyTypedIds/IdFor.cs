@@ -23,6 +23,12 @@ namespace StronglyTypedIds
         public TId Value { get; }
 
         /// <inheritdoc />
+        public override string ToString()
+        {
+            return Value?.ToString() ?? "null";
+        }
+
+        /// <inheritdoc />
         public override int GetHashCode()
         {
             unchecked

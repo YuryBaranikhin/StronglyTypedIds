@@ -21,6 +21,12 @@ namespace StronglyTypedIds
         public long Value { get; }
         
         /// <inheritdoc />
+        public override string ToString()
+        {
+            return Value.ToString();
+        }
+        
+        /// <inheritdoc />
         public override int GetHashCode()
         {
             unchecked
