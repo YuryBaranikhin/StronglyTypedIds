@@ -185,7 +185,6 @@ namespace StronglyTypedIds.Tests
         public void ShouldNotBeSimilarWithIEntityIdWhenFirstNull()
         {
             // arrange
-            var targetId = Guid.NewGuid();
             IdFor<Order, Guid> stronglyTypedId = null;
             IEntityId<Order, Guid> anotherStronglyTypedId = new GuidFor<Order>(Guid.NewGuid());;
 
