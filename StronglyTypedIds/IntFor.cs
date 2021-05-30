@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace StronglyTypedIds
 {
@@ -12,7 +13,8 @@ namespace StronglyTypedIds
         IEquatable<IEntityId<TEntity, int>>,
         IComparable,
         IComparable<IntFor<TEntity>>,
-        IComparable<IEntityId<TEntity, int>>
+        IComparable<IEntityId<TEntity, int>>,
+        IFormattable
     {
         /// <summary>
         /// Инициализирует новый экземпляр <see cref="IntFor{TEntity}"/>
@@ -30,6 +32,22 @@ namespace StronglyTypedIds
         public override string ToString()
         {
             return Value.ToString();
+        }
+
+        /// <summary>
+        /// Returns a string representation of the value, according to the provided format specifier.
+        /// </summary>
+        /// <param name="format">format specifier</param>
+        /// <returns>Returns a string representation of the value, according to the provided format specifier.</returns>
+        public string ToString(string? format)
+        {
+            return Value.ToString(format, CultureInfo.CurrentCulture);
+        }
+
+        /// <inheritdoc />
+        public string ToString(string? format, IFormatProvider? formatProvider)
+        {
+            return Value.ToString(format, formatProvider);
         }
 
         /// <inheritdoc />
