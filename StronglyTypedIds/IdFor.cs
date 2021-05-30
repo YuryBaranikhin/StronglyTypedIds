@@ -8,7 +8,13 @@ namespace StronglyTypedIds
     /// </summary>
     /// <typeparam name="TEntity">Тип идентифицируемой сущности</typeparam>
     /// <typeparam name="TId">Базовый тип идентификатора сущности</typeparam>
-    public class IdFor<TEntity, TId> : IEntityId<TEntity, TId>, IEquatable<IdFor<TEntity, TId>>, IEquatable<IEntityId<TEntity, TId>>
+    public class IdFor<TEntity, TId> : 
+        IEntityId<TEntity, TId>, 
+        IEquatable<IdFor<TEntity, TId>>, 
+        IEquatable<IEntityId<TEntity, TId>>,
+        IComparable,
+        IComparable<IdFor<TEntity, TId>>,
+        IComparable<IEntityId<TEntity, TId>>
     {
         /// <summary>
         /// Инициализирует новый экземпляр <see cref="IdFor{TEntity,TId}"/>
@@ -26,6 +32,20 @@ namespace StronglyTypedIds
         public override string ToString()
         {
             return Value?.ToString() ?? "null";
+        }
+
+        /// <inheritdoc />
+        public int CompareTo(object? obj)
+        {
+            if (ReferenceEquals(obj, null)) return 1;
+            if (ReferenceEquals(this, obj)) return 0;
+            
+            var value = obj as IEntityId<TEntity, TId>;
+            if (value == null) {
+                throw new ArgumentException($"Аргумент должен реализовывать {nameof(IEntityId<TEntity, TId>)}");
+            }
+
+            return CompareTo(value);
         }
 
         /// <inheritdoc />
@@ -51,6 +71,22 @@ namespace StronglyTypedIds
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
             return EqualityComparer<TId>.Default.Equals(Value, other.Value);
+        }
+
+        /// <inheritdoc />
+        public int CompareTo(IdFor<TEntity, TId>? other)
+        {
+            if (ReferenceEquals(null, other)) return 1;
+            if (ReferenceEquals(this, other)) return 0;
+            return Comparer<TId>.Default.Compare(Value, other.Value);
+        }
+
+        /// <inheritdoc />
+        public int CompareTo(IEntityId<TEntity, TId>? other)
+        {
+            if (ReferenceEquals(null, other)) return 1;
+            if (ReferenceEquals(this, other)) return 0;
+            return Comparer<TId>.Default.Compare(Value, other.Value);
         }
 
         /// <inheritdoc />

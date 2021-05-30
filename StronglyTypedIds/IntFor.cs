@@ -6,8 +6,13 @@ namespace StronglyTypedIds
     /// Типизированный идентификатор сущности <typeparamref name="TEntity"/> c базовым идентификатором <see cref="int"/>
     /// </summary>
     /// <typeparam name="TEntity">Тип идентифицируемой сущности</typeparam>
-    public readonly struct IntFor<TEntity> : IEntityId<TEntity, int>, IEquatable<IntFor<TEntity>>,
-        IEquatable<IEntityId<TEntity, int>>
+    public readonly struct IntFor<TEntity> : 
+        IEntityId<TEntity, int>,
+        IEquatable<IntFor<TEntity>>,
+        IEquatable<IEntityId<TEntity, int>>,
+        IComparable,
+        IComparable<IntFor<TEntity>>,
+        IComparable<IEntityId<TEntity, int>>
     {
         /// <summary>
         /// Инициализирует новый экземпляр <see cref="IntFor{TEntity}"/>
@@ -25,6 +30,21 @@ namespace StronglyTypedIds
         public override string ToString()
         {
             return Value.ToString();
+        }
+
+        /// <inheritdoc />
+        public int CompareTo(object? obj)
+        {
+            if (obj == null) {
+                return 1;
+            }
+
+            var value = obj as IEntityId<TEntity, int>;
+            if (value == null) {
+                throw new ArgumentException($"Аргумент должен реализовывать {nameof(IEntityId<TEntity, int>)}");
+            }
+
+            return CompareTo(value);
         }
 
         /// <inheritdoc />
@@ -47,6 +67,18 @@ namespace StronglyTypedIds
         public bool Equals(IntFor<TEntity> other)
         {
             return Value.Equals(other.Value);
+        }
+
+        /// <inheritdoc />
+        public int CompareTo(IntFor<TEntity> other)
+        {
+            return Value.CompareTo(other.Value);
+        }
+
+        /// <inheritdoc />
+        public int CompareTo(IEntityId<TEntity, int>? other)
+        {
+            return ReferenceEquals(other, null) ? 1 : Value.CompareTo(other.Value);
         }
 
         /// <inheritdoc />
