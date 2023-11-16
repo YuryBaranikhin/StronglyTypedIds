@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace StronglyTypedIds.Utils;
+﻿namespace StronglyTypedIds.Utils;
 
 /// <summary>
 ///     Набор вспомогательных методов для <see cref="GuidFor{TEntity}" />.

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace StronglyTypedIds.Tests;
+﻿namespace StronglyTypedIds.Tests;
 
 /// <summary>
 ///     Tests for <see cref="GuidFor{TEntity}" />

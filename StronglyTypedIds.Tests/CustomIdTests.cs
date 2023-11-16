@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace StronglyTypedIds.Tests;
+﻿namespace StronglyTypedIds.Tests;
 
 /// <summary>
 ///     Tests for custom id based on <see cref="IdFor{TEntity,TId}" />
