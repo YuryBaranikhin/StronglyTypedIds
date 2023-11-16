@@ -3,9 +3,9 @@
 namespace StronglyTypedIds;
 
 /// <summary>
-///     Типизированный идентификатор сущности <typeparamref name="TEntity" /> c базовым идентификатором <see cref="Guid" />
+///     Typed identifier for the entity <typeparamref name="TEntity" /> with base identifier <see cref="Guid" />
 /// </summary>
-/// <typeparam name="TEntity">Тип идентифицируемой сущности</typeparam>
+/// <typeparam name="TEntity">Type of the identified entity</typeparam>
 public readonly record struct GuidFor<TEntity> :
     IEntityId<TEntity, Guid>,
     IEquatable<IEntityId<TEntity, Guid>>,
@@ -15,9 +15,9 @@ public readonly record struct GuidFor<TEntity> :
     IFormattable
 {
     /// <summary>
-    ///     Инициализирует новый экземпляр <see cref="GuidFor{TEntity}" />
+    ///     Initializes a new instance of <see cref="GuidFor{TEntity}" />
     /// </summary>
-    /// <param name="value">Значение базового идентификатора сущности</param>
+    /// <param name="value">Value of the base entity identifier</param>
     public GuidFor(Guid value)
     {
         Value = value;
@@ -55,7 +55,7 @@ public readonly record struct GuidFor<TEntity> :
 
         var value = obj as IEntityId<TEntity, Guid>;
         if (value == null)
-            throw new ArgumentException($"Аргумент должен реализовывать {nameof(IEntityId<TEntity, Guid>)}");
+            throw new ArgumentException($"Argument must implement {nameof(IEntityId<TEntity, Guid>)}");
 
         return CompareTo(value);
     }
@@ -95,13 +95,13 @@ public readonly record struct GuidFor<TEntity> :
     }
 
     /// <summary>
-    ///     Оператор равенства
+    ///     Equality operator
     /// </summary>
-    /// <param name="x">Левый операнд для сравнения</param>
-    /// <param name="y">Правый операнд для сравнения</param>
+    /// <param name="x">Left operand for comparison</param>
+    /// <param name="y">Right operand for comparison</param>
     /// <returns>
-    ///     Возвращает <see langword="true" />, если базовые идентификаторы совпадают, и <see langword="false" /> в
-    ///     остальных случаях
+    ///     Returns <see langword="true" />, if the base identifiers match, and <see langword="false" /> in
+    ///     other cases
     /// </returns>
     public static bool operator ==(GuidFor<TEntity> x, IEntityId<TEntity, Guid> y)
     {
@@ -109,16 +109,72 @@ public readonly record struct GuidFor<TEntity> :
     }
 
     /// <summary>
-    ///     Оператор неравенства
+    ///     Inequality operator
     /// </summary>
-    /// <param name="x">Левый операнд для сравнения</param>
-    /// <param name="y">Правый операнд для сравнения</param>
+    /// <param name="x">Left operand for comparison</param>
+    /// <param name="y">Right operand for comparison</param>
     /// <returns>
-    ///     Возвращает <see langword="false" />, если базовые идентификаторы совпадают, и <see langword="true" /> в
-    ///     остальных случаях
+    ///     Returns <see langword="false" />, if the base identifiers match, and <see langword="true" /> in
+    ///     other cases
     /// </returns>
     public static bool operator !=(GuidFor<TEntity> x, IEntityId<TEntity, Guid> y)
     {
         return !(x == y);
+    }
+
+    /// <summary>
+    ///     Greater than operator
+    /// </summary>
+    /// <param name="x">Left operand for comparison</param>
+    /// <param name="y">Right operand for comparison</param>
+    /// <returns>
+    ///     Returns <see langword="true" />, if the base identifier of x is greater than the base identifier of y, and <see langword="false" /> in
+    ///     other cases
+    /// </returns>
+    public static bool operator >(GuidFor<TEntity> x, GuidFor<TEntity> y)
+    {
+        return x.Value.CompareTo(y.Value) > 0;
+    }
+
+    /// <summary>
+    ///     Greater than or equal to operator
+    /// </summary>
+    /// <param name="x">Left operand for comparison</param>
+    /// <param name="y">Right operand for comparison</param>
+    /// <returns>
+    ///     Returns <see langword="true" />, if the base identifier of x is greater than or equal to the base identifier of y, and <see langword="false" /> in
+    ///     other cases
+    /// </returns>
+    public static bool operator >=(GuidFor<TEntity> x, GuidFor<TEntity> y)
+    {
+        return x.Value.CompareTo(y.Value) >= 0;
+    }
+
+    /// <summary>
+    ///     Less than operator
+    /// </summary>
+    /// <param name="x">Left operand for comparison</param>
+    /// <param name="y">Right operand for comparison</param>
+    /// <returns>
+    ///     Returns <see langword="true" />, if the base identifier of x is less than the base identifier of y, and <see langword="false" /> in
+    ///     other cases
+    /// </returns>
+    public static bool operator <(GuidFor<TEntity> x, GuidFor<TEntity> y)
+    {
+        return x.Value.CompareTo(y.Value) < 0;
+    }
+
+    /// <summary>
+    ///     Less than or equal to operator
+    /// </summary>
+    /// <param name="x">Left operand for comparison</param>
+    /// <param name="y">Right operand for comparison</param>
+    /// <returns>
+    ///     Returns <see langword="true" />, if the base identifier of x is less than or equal to the base identifier of y, and <see langword="false" /> in
+    ///     other cases
+    /// </returns>
+    public static bool operator <=(GuidFor<TEntity> x, GuidFor<TEntity> y)
+    {
+        return x.Value.CompareTo(y.Value) <= 0;
     }
 }
