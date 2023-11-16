@@ -3,11 +3,11 @@
 namespace StronglyTypedIds;
 
 /// <summary>
-///     Типизированный идентификатор сущности <typeparamref name="TEntity" /> c базовым идентификатором
+///     Typed identifier for the entity <typeparamref name="TEntity" /> with base identifier
 ///     <typeparamref name="TId" />
 /// </summary>
-/// <typeparam name="TEntity">Тип идентифицируемой сущности</typeparam>
-/// <typeparam name="TId">Базовый тип идентификатора сущности</typeparam>
+/// <typeparam name="TEntity">Type of the identified entity</typeparam>
+/// <typeparam name="TId">Base type of the entity identifier</typeparam>
 public class IdFor<TEntity, TId> :
     IEntityId<TEntity, TId>,
     IEquatable<IdFor<TEntity, TId>>,
@@ -18,9 +18,9 @@ public class IdFor<TEntity, TId> :
     IFormattable
 {
     /// <summary>
-    ///     Инициализирует новый экземпляр <see cref="IdFor{TEntity,TId}" />
+    ///     Initializes a new instance of <see cref="IdFor{TEntity,TId}" />
     /// </summary>
-    /// <param name="value">Значение базового идентификатора сущности</param>
+    /// <param name="value">Value of the base entity identifier</param>
     public IdFor(TId value)
     {
         Value = value;
@@ -114,14 +114,15 @@ public class IdFor<TEntity, TId> :
         return obj is IEntityId<TEntity, TId> other && Equals(other);
     }
 
+
     /// <summary>
-    ///     Оператор равенства
+    ///     Equality operator
     /// </summary>
-    /// <param name="x">Левый операнд для сравнения</param>
-    /// <param name="y">Правый операнд для сравнения</param>
+    /// <param name="x">Left operand for comparison</param>
+    /// <param name="y">Right operand for comparison</param>
     /// <returns>
-    ///     Возвращает <see langword="true" />, если базовые идентификаторы совпадают, и <see langword="false" /> в
-    ///     остальных случаях
+    ///     Returns <see langword="true" />, if the base identifiers match, and <see langword="false" /> in
+    ///     other cases
     /// </returns>
     public static bool operator ==(IdFor<TEntity, TId>? x, IdFor<TEntity, TId>? y)
     {
@@ -129,13 +130,13 @@ public class IdFor<TEntity, TId> :
     }
 
     /// <summary>
-    ///     Оператор неравенства
+    ///     Inequality operator
     /// </summary>
-    /// <param name="x">Левый операнд для сравнения</param>
-    /// <param name="y">Правый операнд для сравнения</param>
+    /// <param name="x">Left operand for comparison</param>
+    /// <param name="y">Right operand for comparison</param>
     /// <returns>
-    ///     Возвращает <see langword="false" />, если базовые идентификаторы совпадают, и <see langword="true" /> в
-    ///     остальных случаях
+    ///     Returns <see langword="false" />, if the base identifiers match, and <see langword="true" /> in
+    ///     other cases
     /// </returns>
     public static bool operator !=(IdFor<TEntity, TId>? x, IdFor<TEntity, TId>? y)
     {
@@ -143,13 +144,13 @@ public class IdFor<TEntity, TId> :
     }
 
     /// <summary>
-    ///     Оператор равенства
+    ///     Equality operator
     /// </summary>
-    /// <param name="x">Левый операнд для сравнения</param>
-    /// <param name="y">Правый операнд для сравнения</param>
+    /// <param name="x">Left operand for comparison</param>
+    /// <param name="y">Right operand for comparison</param>
     /// <returns>
-    ///     Возвращает <see langword="true" />, если базовые идентификаторы совпадают, и <see langword="false" /> в
-    ///     остальных случаях
+    ///     Returns <see langword="true" />, if the base identifiers match, and <see langword="false" /> in
+    ///     other cases
     /// </returns>
     public static bool operator ==(IdFor<TEntity, TId>? x, IEntityId<TEntity, TId>? y)
     {
@@ -157,16 +158,72 @@ public class IdFor<TEntity, TId> :
     }
 
     /// <summary>
-    ///     Оператор неравенства
+    ///     Inequality operator
     /// </summary>
-    /// <param name="x">Левый операнд для сравнения</param>
-    /// <param name="y">Правый операнд для сравнения</param>
+    /// <param name="x">Left operand for comparison</param>
+    /// <param name="y">Right operand for comparison</param>
     /// <returns>
-    ///     Возвращает <see langword="false" />, если базовые идентификаторы совпадают, и <see langword="true" /> в
-    ///     остальных случаях
+    ///     Returns <see langword="false" />, if the base identifiers match, and <see langword="true" /> in
+    ///     other cases
     /// </returns>
     public static bool operator !=(IdFor<TEntity, TId>? x, IEntityId<TEntity, TId>? y)
     {
         return !(x == y);
+    }
+
+    /// <summary>
+    ///     Greater than operator
+    /// </summary>
+    /// <param name="x">Left operand for comparison</param>
+    /// <param name="y">Right operand for comparison</param>
+    /// <returns>
+    ///     Returns <see langword="true" />, if the base identifier of x is greater than the base identifier of y, and <see langword="false" /> in
+    ///     other cases
+    /// </returns>
+    public static bool operator >(IdFor<TEntity, TId> x, IdFor<TEntity, TId> y)
+    {
+        return Comparer<TId>.Default.Compare(x.Value, y.Value) > 0;
+    }
+
+    /// <summary>
+    ///     Greater than or equal to operator
+    /// </summary>
+    /// <param name="x">Left operand for comparison</param>
+    /// <param name="y">Right operand for comparison</param>
+    /// <returns>
+    ///     Returns <see langword="true" />, if the base identifier of x is greater than or equal to the base identifier of y, and <see langword="false" /> in
+    ///     other cases
+    /// </returns>
+    public static bool operator >=(IdFor<TEntity, TId> x, IdFor<TEntity, TId> y)
+    {
+        return Comparer<TId>.Default.Compare(x.Value, y.Value) >= 0;
+    }
+
+    /// <summary>
+    ///     Less than operator
+    /// </summary>
+    /// <param name="x">Left operand for comparison</param>
+    /// <param name="y">Right operand for comparison</param>
+    /// <returns>
+    ///     Returns <see langword="true" />, if the base identifier of x is less than the base identifier of y, and <see langword="false" /> in
+    ///     other cases
+    /// </returns>
+    public static bool operator <(IdFor<TEntity, TId> x, IdFor<TEntity, TId> y)
+    {
+        return Comparer<TId>.Default.Compare(x.Value, y.Value) < 0;
+    }
+
+    /// <summary>
+    ///     Less than or equal to operator
+    /// </summary>
+    /// <param name="x">Left operand for comparison</param>
+    /// <param name="y">Right operand for comparison</param>
+    /// <returns>
+    ///     Returns <see langword="true" />, if the base identifier of x is less than or equal to the base identifier of y, and <see langword="false" /> in
+    ///     other cases
+    /// </returns>
+    public static bool operator <=(IdFor<TEntity, TId> x, IdFor<TEntity, TId> y)
+    {
+        return Comparer<TId>.Default.Compare(x.Value, y.Value) <= 0;
     }
 }
