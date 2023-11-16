@@ -2,41 +2,40 @@
 using FluentAssertions;
 using Xunit;
 
-namespace StronglyTypedIds.Tests
+namespace StronglyTypedIds.Tests;
+
+public partial class CustomIdTests
 {
-    public partial class CustomIdTests
+    /// <summary>
+    ///     Tests for custom id based on <see cref="IdFor{TEntity,TId}.ToString" />
+    /// </summary>
+    public class ToStringTests
     {
-        /// <summary>
-        /// Tests for custom id based on <see cref="IdFor{TEntity,TId}.ToString"/>
-        /// </summary>
-        public class ToStringTests
+        [Fact]
+        public void ShouldProvideValueString()
         {
-            [Fact]
-            public void ShouldProvideValueString()
-            {
-                // arrange
-                var targetId = Guid.NewGuid();
-                var stronglyTypedId = new OrderId(targetId);
+            // arrange
+            var targetId = Guid.NewGuid();
+            var stronglyTypedId = new OrderId(targetId);
 
-                // act
-                var providedValue = stronglyTypedId.ToString();
+            // act
+            var providedValue = stronglyTypedId.ToString();
 
-                // assert
-                providedValue.Should().Be(targetId.ToString());
-            }
-            
-            [Fact]
-            public void ShouldNotThrowWhenValueIsNull()
-            {
-                // arrange
-                var stronglyTypedId = new IdFor<Order, object>(null);
+            // assert
+            providedValue.Should().Be(targetId.ToString());
+        }
 
-                // act
-                Func<string> act = () => stronglyTypedId.ToString();
+        [Fact]
+        public void ShouldNotThrowWhenValueIsNull()
+        {
+            // arrange
+            var stronglyTypedId = new IdFor<Order, object>(null);
 
-                // assert
-                act.Should().NotThrow();
-            }
+            // act
+            var act = () => stronglyTypedId.ToString();
+
+            // assert
+            act.Should().NotThrow();
         }
     }
 }

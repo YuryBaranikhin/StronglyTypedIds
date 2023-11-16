@@ -1,20 +1,19 @@
 ﻿using Bogus;
 
-namespace StronglyTypedIds.Tests
+namespace StronglyTypedIds.Tests;
+
+/// <summary>
+///     Tests for <see cref="IntFor{TEntity}" />
+/// </summary>
+public partial class IntIdTests
 {
-    /// <summary>
-    /// Tests for <see cref="IntFor{TEntity}"/>
-    /// </summary>
-    public partial class IntIdTests
+    private static readonly Faker Faker = new();
+
+    private sealed class Order
     {
-        private static readonly Faker Faker = new Faker();
+    }
 
-        private class Order
-        {
-        }
-
-        private class PricePosition
-        {
-        }
+    private sealed class PricePosition
+    {
     }
 }

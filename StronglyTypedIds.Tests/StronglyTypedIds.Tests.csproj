@@ -1,20 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
-        <LangVersion>latestmajor</LangVersion>
-    </PropertyGroup>
-
     <ItemGroup>
-      <PackageReference Include="Bogus" />
-      <PackageReference Include="FluentAssertions" />
-      <PackageReference Include="Microsoft.NET.Test.Sdk" />
-      <PackageReference Include="xunit" />
-      <PackageReference Include="xunit.runner.visualstudio" />
+        <PackageReference Include="Bogus"/>
+        <PackageReference Include="FluentAssertions"/>
+        <PackageReference Include="Microsoft.NET.Test.Sdk"/>
+        <PackageReference Include="xunit"/>
+        <PackageReference Include="xunit.runner.visualstudio"/>
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\StronglyTypedIds\StronglyTypedIds.csproj" />
+        <ProjectReference Include="..\StronglyTypedIds\StronglyTypedIds.csproj"/>
     </ItemGroup>
 
 </Project>

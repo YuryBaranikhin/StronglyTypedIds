@@ -2,160 +2,159 @@
 using FluentAssertions;
 using Xunit;
 
-namespace StronglyTypedIds.Tests
+namespace StronglyTypedIds.Tests;
+
+public partial class IdTests
 {
-    public partial class IdTests
+    /// <summary>
+    ///     Tests for <see cref="IdFor{TEntity,TId}.Equals" />
+    /// </summary>
+    public class EqualsTests
     {
-        /// <summary>
-        /// Tests for <see cref="IdFor{TEntity,TId}.Equals"/>
-        /// </summary>
-        public class EqualsTests
+        [Fact]
+        public void ShouldBeEqualWhenIdIsTheSame()
         {
-            [Fact]
-            public void ShouldBeEqualWhenIdIsTheSame()
-            {
-                // arrange
-                var targetId = Guid.NewGuid();
-                var stronglyTypedId = new IdFor<Order, Guid>(targetId);
+            // arrange
+            var targetId = Guid.NewGuid();
+            var stronglyTypedId = new IdFor<Order, Guid>(targetId);
 
-                // act
-                var result = stronglyTypedId.Equals(stronglyTypedId);
+            // act
+            var result = stronglyTypedId.Equals(stronglyTypedId);
 
-                // assert
-                result.Should().BeTrue();
-            }
+            // assert
+            result.Should().BeTrue();
+        }
 
-            [Fact]
-            public void ShouldBeEqualWhenValuesAndEntitiesAreEqual()
-            {
-                // arrange
-                var targetId = Guid.NewGuid();
-                var stronglyTypedId = new IdFor<Order, Guid>(targetId);
-                var anotherStronglyTypedId = new IdFor<Order, Guid>(targetId);
+        [Fact]
+        public void ShouldBeEqualWhenValuesAndEntitiesAreEqual()
+        {
+            // arrange
+            var targetId = Guid.NewGuid();
+            var stronglyTypedId = new IdFor<Order, Guid>(targetId);
+            var anotherStronglyTypedId = new IdFor<Order, Guid>(targetId);
 
-                // act
-                var result = stronglyTypedId.Equals(anotherStronglyTypedId);
+            // act
+            var result = stronglyTypedId.Equals(anotherStronglyTypedId);
 
-                // assert
-                result.Should().BeTrue();
-            }
+            // assert
+            result.Should().BeTrue();
+        }
 
-            [Fact]
-            public void ShouldNotBeEqualWhenValuesAreDifferent()
-            {
-                // arrange
-                var stronglyTypedId = new IdFor<Order, Guid>(Guid.NewGuid());
-                var anotherStronglyTypedId = new IdFor<Order, Guid>(Guid.NewGuid());
+        [Fact]
+        public void ShouldNotBeEqualWhenValuesAreDifferent()
+        {
+            // arrange
+            var stronglyTypedId = new IdFor<Order, Guid>(Guid.NewGuid());
+            var anotherStronglyTypedId = new IdFor<Order, Guid>(Guid.NewGuid());
 
-                // act
-                var result = stronglyTypedId.Equals(anotherStronglyTypedId);
+            // act
+            var result = stronglyTypedId.Equals(anotherStronglyTypedId);
 
-                // assert
-                result.Should().BeFalse();
-            }
+            // assert
+            result.Should().BeFalse();
+        }
 
-            [Fact]
-            public void ShouldNotBeEqualWhenEntitiesAreDifferent()
-            {
-                // arrange
-                var targetId = Guid.NewGuid();
-                var stronglyTypedId = new IdFor<Order, Guid>(targetId);
-                var anotherStronglyTypedId = new IdFor<PricePosition, Guid>(targetId);
+        [Fact]
+        public void ShouldNotBeEqualWhenEntitiesAreDifferent()
+        {
+            // arrange
+            var targetId = Guid.NewGuid();
+            var stronglyTypedId = new IdFor<Order, Guid>(targetId);
+            var anotherStronglyTypedId = new IdFor<PricePosition, Guid>(targetId);
 
-                // act
-                var result = stronglyTypedId.Equals(anotherStronglyTypedId);
+            // act
+            var result = stronglyTypedId.Equals(anotherStronglyTypedId);
 
-                // assert
-                result.Should().BeFalse();
-            }
+            // assert
+            result.Should().BeFalse();
+        }
 
-            [Fact]
-            public void ShouldNotBeEqualToNull()
-            {
-                // arrange
-                var targetId = Guid.NewGuid();
-                var stronglyTypedId = new IdFor<Order, Guid>(targetId);
+        [Fact]
+        public void ShouldNotBeEqualToNull()
+        {
+            // arrange
+            var targetId = Guid.NewGuid();
+            var stronglyTypedId = new IdFor<Order, Guid>(targetId);
 
-                // act
-                var result = stronglyTypedId.Equals(null);
+            // act
+            var result = stronglyTypedId.Equals(null);
 
-                // assert
-                result.Should().BeFalse();
-            }
+            // assert
+            result.Should().BeFalse();
+        }
 
-            [Fact]
-            public void ShouldBeEqualWithIEntityIdWhenIdIsTheSame()
-            {
-                // arrange
-                var targetId = Guid.NewGuid();
-                var stronglyTypedId = new IdFor<Order, Guid>(targetId);
-                IEntityId<Order, Guid> anotherStronglyTypedId = stronglyTypedId;
+        [Fact]
+        public void ShouldBeEqualWithIEntityIdWhenIdIsTheSame()
+        {
+            // arrange
+            var targetId = Guid.NewGuid();
+            var stronglyTypedId = new IdFor<Order, Guid>(targetId);
+            IEntityId<Order, Guid> anotherStronglyTypedId = stronglyTypedId;
 
-                // act
-                var result = stronglyTypedId.Equals(anotherStronglyTypedId);
+            // act
+            var result = stronglyTypedId.Equals(anotherStronglyTypedId);
 
-                // assert
-                result.Should().BeTrue();
-            }
-            
-            [Fact]
-            public void ShouldBeEqualWithIEntityIdWhenValuesAndEntitiesAreEqual()
-            {
-                // arrange
-                var targetId = Guid.NewGuid();
-                var stronglyTypedId = new IdFor<Order, Guid>(targetId);
-                IEntityId<Order, Guid> anotherStronglyTypedId = new GuidFor<Order>(targetId);
+            // assert
+            result.Should().BeTrue();
+        }
 
-                // act
-                var result = stronglyTypedId.Equals(anotherStronglyTypedId);
+        [Fact]
+        public void ShouldBeEqualWithIEntityIdWhenValuesAndEntitiesAreEqual()
+        {
+            // arrange
+            var targetId = Guid.NewGuid();
+            var stronglyTypedId = new IdFor<Order, Guid>(targetId);
+            IEntityId<Order, Guid> anotherStronglyTypedId = new GuidFor<Order>(targetId);
 
-                // assert
-                result.Should().BeTrue();
-            }
+            // act
+            var result = stronglyTypedId.Equals(anotherStronglyTypedId);
 
-            [Fact]
-            public void ShouldNotBeEqualWithIEntityIdWhenValuesAreDifferent()
-            {
-                // arrange
-                var stronglyTypedId = new IdFor<Order, Guid>(Guid.NewGuid());
-                IEntityId<Order, Guid> anotherStronglyTypedId = new GuidFor<Order>(Guid.NewGuid());
+            // assert
+            result.Should().BeTrue();
+        }
 
-                // act
-                var result = stronglyTypedId.Equals(anotherStronglyTypedId);
+        [Fact]
+        public void ShouldNotBeEqualWithIEntityIdWhenValuesAreDifferent()
+        {
+            // arrange
+            var stronglyTypedId = new IdFor<Order, Guid>(Guid.NewGuid());
+            IEntityId<Order, Guid> anotherStronglyTypedId = new GuidFor<Order>(Guid.NewGuid());
 
-                // assert
-                result.Should().BeFalse();
-            }
+            // act
+            var result = stronglyTypedId.Equals(anotherStronglyTypedId);
 
-            [Fact]
-            public void ShouldNotBeEqualWithIEntityIdWhenEntitiesAreDifferent()
-            {
-                // arrange
-                var targetId = Guid.NewGuid();
-                var stronglyTypedId = new IdFor<Order, Guid>(targetId);
-                IEntityId<PricePosition, Guid> anotherStronglyTypedId = new GuidFor<PricePosition>(targetId);
+            // assert
+            result.Should().BeFalse();
+        }
 
-                // act
-                var result = stronglyTypedId.Equals(anotherStronglyTypedId);
+        [Fact]
+        public void ShouldNotBeEqualWithIEntityIdWhenEntitiesAreDifferent()
+        {
+            // arrange
+            var targetId = Guid.NewGuid();
+            var stronglyTypedId = new IdFor<Order, Guid>(targetId);
+            IEntityId<PricePosition, Guid> anotherStronglyTypedId = new GuidFor<PricePosition>(targetId);
 
-                // assert
-                result.Should().BeFalse();
-            }
+            // act
+            var result = stronglyTypedId.Equals(anotherStronglyTypedId);
 
-            [Fact]
-            public void ShouldNotBeEqualWithIEntityIdWhenNull()
-            {
-                // arrange
-                var targetId = Guid.NewGuid();
-                var stronglyTypedId = new IdFor<Order, Guid>(targetId);
-                IEntityId<Order, Guid> anotherStronglyTypedId = null;
+            // assert
+            result.Should().BeFalse();
+        }
 
-                // act
-                var result = stronglyTypedId.Equals(anotherStronglyTypedId);
+        [Fact]
+        public void ShouldNotBeEqualWithIEntityIdWhenNull()
+        {
+            // arrange
+            var targetId = Guid.NewGuid();
+            var stronglyTypedId = new IdFor<Order, Guid>(targetId);
+            IEntityId<Order, Guid> anotherStronglyTypedId = null;
 
-                // assert
-                result.Should().BeFalse();
-            }
+            // act
+            var result = stronglyTypedId.Equals(anotherStronglyTypedId);
+
+            // assert
+            result.Should().BeFalse();
         }
     }
 }
