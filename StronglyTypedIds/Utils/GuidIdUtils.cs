@@ -35,6 +35,7 @@ public static class GuidIdUtils
     /// <returns>Returns an instance of <see cref="GuidFor{TEntity}" />.</returns>
     public static GuidFor<TEntity> AsId<TEntity>(this TEntity entity) where TEntity : class, IEntityWithId<Guid>
     {
+        ArgumentNullException.ThrowIfNull(entity);
         return new GuidFor<TEntity>(entity.Id);
     }
 

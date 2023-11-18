@@ -1,4 +1,5 @@
 ﻿using Bogus;
+using JetBrains.Annotations;
 
 namespace StronglyTypedIds.Tests;
 
@@ -14,6 +15,7 @@ public partial class ULongIdTests
         public ulong Id { get; set; }
     }
 
+    [UsedImplicitly]
     private sealed class PricePosition
     {
         public ulong Id { get; set; }

@@ -182,6 +182,9 @@ public class IdFor<TEntity, TId> :
     /// </returns>
     public static bool operator >(IdFor<TEntity, TId> x, IdFor<TEntity, TId> y)
     {
+        ArgumentNullException.ThrowIfNull(x);
+        ArgumentNullException.ThrowIfNull(y);
+
         return Comparer<TId>.Default.Compare(x.Value, y.Value) > 0;
     }
 
@@ -196,6 +199,9 @@ public class IdFor<TEntity, TId> :
     /// </returns>
     public static bool operator >=(IdFor<TEntity, TId> x, IdFor<TEntity, TId> y)
     {
+        ArgumentNullException.ThrowIfNull(x);
+        ArgumentNullException.ThrowIfNull(y);
+
         return Comparer<TId>.Default.Compare(x.Value, y.Value) >= 0;
     }
 
@@ -210,6 +216,9 @@ public class IdFor<TEntity, TId> :
     /// </returns>
     public static bool operator <(IdFor<TEntity, TId> x, IdFor<TEntity, TId> y)
     {
+        ArgumentNullException.ThrowIfNull(x);
+        ArgumentNullException.ThrowIfNull(y);
+
         return Comparer<TId>.Default.Compare(x.Value, y.Value) < 0;
     }
 
@@ -224,6 +233,9 @@ public class IdFor<TEntity, TId> :
     /// </returns>
     public static bool operator <=(IdFor<TEntity, TId> x, IdFor<TEntity, TId> y)
     {
+        ArgumentNullException.ThrowIfNull(x);
+        ArgumentNullException.ThrowIfNull(y);
+
         return Comparer<TId>.Default.Compare(x.Value, y.Value) <= 0;
     }
 }

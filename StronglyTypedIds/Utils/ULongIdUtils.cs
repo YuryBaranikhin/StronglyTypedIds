@@ -35,6 +35,7 @@ public static class ULongIdUtils
     /// <returns>Returns an instance of <see cref="ULongFor{TEntity}" />.</returns>
     public static ULongFor<TEntity> AsId<TEntity>(this TEntity entity) where TEntity : class, IEntityWithId<ulong>
     {
+        ArgumentNullException.ThrowIfNull(entity);
         return new ULongFor<TEntity>(entity.Id);
     }
 

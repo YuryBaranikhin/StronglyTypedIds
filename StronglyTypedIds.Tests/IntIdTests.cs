@@ -1,4 +1,5 @@
 ﻿using Bogus;
+using JetBrains.Annotations;
 
 namespace StronglyTypedIds.Tests;
 
@@ -13,6 +14,7 @@ public partial class IntIdTests
     {
     }
 
+    [UsedImplicitly]
     private sealed class PricePosition
     {
     }

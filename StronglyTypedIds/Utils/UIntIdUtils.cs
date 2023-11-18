@@ -35,6 +35,7 @@ public static class UIntIdUtils
     /// <returns>Returns an instance of <see cref="UIntFor{TEntity}" />.</returns>
     public static UIntFor<TEntity> AsId<TEntity>(this TEntity entity) where TEntity : class, IEntityWithId<uint>
     {
+        ArgumentNullException.ThrowIfNull(entity);
         return new UIntFor<TEntity>(entity.Id);
     }
 

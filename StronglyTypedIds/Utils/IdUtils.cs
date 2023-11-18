@@ -15,6 +15,7 @@ public static class IdUtils
     public static IdFor<TEntity, TKey> AsId<TEntity, TKey>(this TEntity entity)
         where TEntity : class, IEntityWithId<TKey>
     {
+        ArgumentNullException.ThrowIfNull(entity);
         return new IdFor<TEntity, TKey>(entity.Id);
     }
 

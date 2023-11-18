@@ -35,6 +35,7 @@ public static class IntIdUtils
     /// <returns>Returns an instance of <see cref="IntFor{TEntity}" />.</returns>
     public static IntFor<TEntity> AsId<TEntity>(this TEntity entity) where TEntity : class, IEntityWithId<int>
     {
+        ArgumentNullException.ThrowIfNull(entity);
         return new IntFor<TEntity>(entity.Id);
     }
 

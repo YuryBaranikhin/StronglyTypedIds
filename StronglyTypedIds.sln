@@ -12,6 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution 
 		nuget.config = nuget.config
 		Directory.Build.props = Directory.Build.props
 		.gitignore = .gitignore
+		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StronglyTypedIds", "StronglyTypedIds\StronglyTypedIds.csproj", "{C00EFB7C-9E39-40E3-8AF3-4304B49581ED}"

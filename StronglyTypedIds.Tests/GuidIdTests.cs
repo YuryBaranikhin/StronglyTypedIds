@@ -1,4 +1,6 @@
-﻿namespace StronglyTypedIds.Tests;
+﻿using JetBrains.Annotations;
+
+namespace StronglyTypedIds.Tests;
 
 /// <summary>
 ///     Tests for <see cref="GuidFor{TEntity}" />
@@ -10,6 +12,7 @@ public partial class GuidIdTests
         public Guid Id { get; set; }
     }
 
+    [UsedImplicitly]
     private sealed class PricePosition
     {
         public Guid Id { get; set; }
