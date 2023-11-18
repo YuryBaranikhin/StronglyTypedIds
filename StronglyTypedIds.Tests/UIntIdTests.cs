@@ -10,12 +10,8 @@ public partial class UIntIdTests
 {
     private static readonly Faker Faker = new();
 
-    private sealed class Order
-    {
-    }
+    private sealed class Order;
 
     [UsedImplicitly]
-    private sealed class PricePosition
-    {
-    }
+    private sealed class PricePosition;
 }

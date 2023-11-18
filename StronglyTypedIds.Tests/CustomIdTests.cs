@@ -7,14 +7,10 @@ namespace StronglyTypedIds.Tests;
 /// </summary>
 public partial class CustomIdTests
 {
-    private sealed class Order
-    {
-    }
+    private sealed class Order;
 
     [UsedImplicitly]
-    private sealed class PricePosition
-    {
-    }
+    private sealed class PricePosition;
 
     private sealed class OrderId : IdFor<Order, Guid>
     {
