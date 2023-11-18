@@ -112,7 +112,7 @@ public class IntUtilsTests
         }
     }
 
-    private class Order : IEntityWithId<int>
+    private sealed class Order : IEntityWithId<int>
     {
         public int Id { get; set; }
     }
