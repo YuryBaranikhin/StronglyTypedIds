@@ -1,17 +1,17 @@
 ﻿namespace StronglyTypedIds.Utils;
 
 /// <summary>
-///     Набор вспомогательных методов для <see cref="IdFor{TEntity, TKey}" />.
+///     A set of helper methods for <see cref="IdFor{TEntity, TKey}" />.
 /// </summary>
 public static class IdUtils
 {
     /// <summary>
-    ///     Представляет экземпляр сущности <typeparamref name="TEntity" /> в виде <see cref="IdFor{TEntity, TKey}" />.
+    ///     Represents an instance of the entity <typeparamref name="TEntity" /> as a <see cref="IdFor{TEntity, TKey}" />.
     /// </summary>
-    /// <param name="entity">Экземпляр идентифицируемой сущности.</param>
-    /// <typeparam name="TEntity">Тип идентифицируемой сущности.</typeparam>
-    /// <typeparam name="TKey">Тип базового идентификатора сущности <typeparamref name="TEntity" />.</typeparam>
-    /// <returns>Возвращает экземпляр <see cref="IdFor{TEntity, TKey}" />.</returns>
+    /// <param name="entity">An instance of the identifiable entity.</param>
+    /// <typeparam name="TEntity">The type of the identifiable entity.</typeparam>
+    /// <typeparam name="TKey">The base type of the entity's identifier.</typeparam>
+    /// <returns>Returns an instance of <see cref="IdFor{TEntity, TKey}" />.</returns>
     public static IdFor<TEntity, TKey> AsId<TEntity, TKey>(this TEntity entity)
         where TEntity : class, IEntityWithId<TKey>
     {
@@ -19,13 +19,12 @@ public static class IdUtils
     }
 
     /// <summary>
-    ///     Представляет перечисление экземпляров сущности <typeparamref name="TEntity" /> в виде перечисления
-    ///     <see cref="IdFor{TEntity, TKey}" />.
+    ///     Represents an enumeration of instances of the entity <typeparamref name="TEntity" /> as an enumeration of <see cref="IdFor{TEntity, TKey}" />.
     /// </summary>
-    /// <param name="entities">Перечисление экземпляров идентифицируемой сущности.</param>
-    /// <typeparam name="TEntity">Тип идентифицируемой сущности.</typeparam>
-    /// <typeparam name="TKey">Тип базового идентификатора сущности <typeparamref name="TEntity" />.</typeparam>
-    /// <returns>Возвращает перечисление экземпляров <see cref="IdFor{TEntity, TKey}" />.</returns>
+    /// <param name="entities">An enumeration of instances of the identifiable entity.</param>
+    /// <typeparam name="TEntity">The type of the identifiable entity.</typeparam>
+    /// <typeparam name="TKey">The base type of the entity's identifier.</typeparam>
+    /// <returns>Returns an enumeration of instances of <see cref="IdFor{TEntity, TKey}" />.</returns>
     public static IEnumerable<IdFor<TEntity, TKey>> AsIds<TEntity, TKey>(this IEnumerable<TEntity> entities)
         where TEntity : class, IEntityWithId<TKey>
     {
@@ -33,13 +32,12 @@ public static class IdUtils
     }
 
     /// <summary>
-    ///     Представляет перечисление экземпляров <see cref="IdFor{TEntity, TKey}" /> в виде перечисления базовых
-    ///     идентификаторов.
+    ///     Represents an enumeration of instances of <see cref="IdFor{TEntity, TKey}" /> as an enumeration of base identifiers.
     /// </summary>
-    /// <param name="ids">Перечисление экземпляров <see cref="IdFor{TEntity, TKey}" />.</param>
-    /// <typeparam name="TEntity">Тип идентифицируемой сущности.</typeparam>
-    /// <typeparam name="TKey">Тип базового идентификатора сущности <typeparamref name="TEntity" />.</typeparam>
-    /// <returns>Возвращает перечисление базовых идентификаторов.</returns>
+    /// <param name="ids">An enumeration of instances of <see cref="IdFor{TEntity, TKey}" />.</param>
+    /// <typeparam name="TEntity">The type of the identifiable entity.</typeparam>
+    /// <typeparam name="TKey">The base type of the entity's identifier.</typeparam>
+    /// <returns>Returns an enumeration of base identifiers.</returns>
     public static IEnumerable<TKey> AsIds<TEntity, TKey>(this IEnumerable<IdFor<TEntity, TKey>> ids)
         where TEntity : class, IEntityWithId<TKey>
     {

@@ -1,50 +1,49 @@
 ﻿namespace StronglyTypedIds.Utils;
 
 /// <summary>
-///     Набор вспомогательных методов для <see cref="LongFor{TEntity}" />.
+///     A set of helper methods for <see cref="LongFor{TEntity}" />.
 /// </summary>
 public static class LongIdUtils
 {
     /// <summary>
-    ///     Представляет <paramref name="value" /> в виде <see cref="LongFor{TEntity}" />.
+    ///     Represents <paramref name="value" /> as a <see cref="LongFor{TEntity}" />.
     /// </summary>
-    /// <param name="value">Значение базового идентификатора сущности <typeparamref name="TEntity" />.</param>
-    /// <typeparam name="TEntity">Тип идентифицируемой сущности.</typeparam>
-    /// <returns>Возвращает экземпляр <see cref="LongFor{TEntity}" />.</returns>
+    /// <param name="value">The value of the base identifier of the entity <typeparamref name="TEntity" />.</param>
+    /// <typeparam name="TEntity">The type of the identifiable entity.</typeparam>
+    /// <returns>Returns an instance of <see cref="LongFor{TEntity}" />.</returns>
     public static LongFor<TEntity> AsIdFor<TEntity>(this long value)
     {
         return new LongFor<TEntity>(value);
     }
 
     /// <summary>
-    ///     Представляет перечисление <paramref name="values" /> в виде перечисления <see cref="LongFor{TEntity}" />.
+    ///     Represents the enumeration <paramref name="values" /> as an enumeration of <see cref="LongFor{TEntity}" />.
     /// </summary>
-    /// <param name="values">Перечисление значений базовых идентификаторов сущности <typeparamref name="TEntity" />.</param>
-    /// <typeparam name="TEntity">Тип идентифицируемой сущности.</typeparam>
-    /// <returns>Возвращает перечисление экземпляров <see cref="LongFor{TEntity}" />.</returns>
+    /// <param name="values">An enumeration of the values of the base identifiers of the entity <typeparamref name="TEntity" />.</param>
+    /// <typeparam name="TEntity">The type of the identifiable entity.</typeparam>
+    /// <returns>Returns an enumeration of instances of <see cref="LongFor{TEntity}" />.</returns>
     public static IEnumerable<LongFor<TEntity>> AsIdsFor<TEntity>(this IEnumerable<long> values)
     {
         return values.Select(value => new LongFor<TEntity>(value));
     }
 
     /// <summary>
-    ///     Представляет экземпляр сущности <typeparamref name="TEntity" /> в виде <see cref="LongFor{TEntity}" />.
+    ///     Represents an instance of the entity <typeparamref name="TEntity" /> as a <see cref="LongFor{TEntity}" />.
     /// </summary>
-    /// <param name="entity">Экземпляр идентифицируемой сущности.</param>
-    /// <typeparam name="TEntity">Тип идентифицируемой сущности.</typeparam>
-    /// <returns>Возвращает экземпляр <see cref="LongFor{TEntity}" />.</returns>
+    /// <param name="entity">An instance of the identifiable entity.</param>
+    /// <typeparam name="TEntity">The type of the identifiable entity.</typeparam>
+    /// <returns>Returns an instance of <see cref="LongFor{TEntity}" />.</returns>
     public static LongFor<TEntity> AsId<TEntity>(this TEntity entity) where TEntity : class, IEntityWithId<long>
     {
         return new LongFor<TEntity>(entity.Id);
     }
 
     /// <summary>
-    ///     Представляет перечисление экземпляров сущности <typeparamref name="TEntity" /> в виде перечисления
-    ///     <see cref="LongFor{TEntity}" />.
+    ///     Represents an enumeration of instances of the entity <typeparamref name="TEntity" /> as an enumeration of <see cref="LongFor{TEntity}" />.
     /// </summary>
-    /// <param name="entities">Перечисление экземпляров идентифицируемой сущности.</param>
-    /// <typeparam name="TEntity">Тип идентифицируемой сущности.</typeparam>
-    /// <returns>Возвращает перечисление экземпляров <see cref="LongFor{TEntity}" />.</returns>
+    /// <param name="entities">An enumeration of instances of the identifiable entity.</param>
+    /// <typeparam name="TEntity">The type of the identifiable entity.</typeparam>
+    /// <returns>Returns an enumeration of instances of <see cref="LongFor{TEntity}" />.</returns>
     public static IEnumerable<LongFor<TEntity>> AsIds<TEntity>(this IEnumerable<TEntity> entities)
         where TEntity : class, IEntityWithId<long>
     {
@@ -52,11 +51,11 @@ public static class LongIdUtils
     }
 
     /// <summary>
-    ///     Представляет перечисление экземпляров <see cref="LongFor{TEntity}" /> в виде перечисления базовых идентификаторов.
+    ///     Represents an enumeration of instances of <see cref="LongFor{TEntity}" /> as an enumeration of base identifiers.
     /// </summary>
-    /// <param name="ids">Перечисление экземпляров <see cref="LongFor{TEntity}" />.</param>
-    /// <typeparam name="TEntity">Тип идентифицируемой сущности.</typeparam>
-    /// <returns>Возвращает перечисление базовых идентификаторов.</returns>
+    /// <param name="ids">An enumeration of instances of <see cref="LongFor{TEntity}" />.</param>
+    /// <typeparam name="TEntity">The type of the identifiable entity.</typeparam>
+    /// <returns>Returns an enumeration of base identifiers.</returns>
     public static IEnumerable<long> AsIds<TEntity>(this IEnumerable<LongFor<TEntity>> ids)
         where TEntity : class, IEntityWithId<long>
     {

@@ -1,50 +1,49 @@
 ﻿namespace StronglyTypedIds.Utils;
 
 /// <summary>
-///     Набор вспомогательных методов для <see cref="IntFor{TEntity}" />.
+///     A set of helper methods for <see cref="IntFor{TEntity}" />.
 /// </summary>
 public static class IntIdUtils
 {
     /// <summary>
-    ///     Представляет <paramref name="value" /> в виде <see cref="IntFor{TEntity}" />.
+    ///     Represents <paramref name="value" /> as a <see cref="IntFor{TEntity}" />.
     /// </summary>
-    /// <param name="value">Значение базового идентификатора сущности <typeparamref name="TEntity" />.</param>
-    /// <typeparam name="TEntity">Тип идентифицируемой сущности.</typeparam>
-    /// <returns>Возвращает экземпляр <see cref="IntFor{TEntity}" />.</returns>
+    /// <param name="value">The value of the base identifier of the entity <typeparamref name="TEntity" />.</param>
+    /// <typeparam name="TEntity">The type of the identifiable entity.</typeparam>
+    /// <returns>Returns an instance of <see cref="IntFor{TEntity}" />.</returns>
     public static IntFor<TEntity> AsIdFor<TEntity>(this int value)
     {
         return new IntFor<TEntity>(value);
     }
 
     /// <summary>
-    ///     Представляет перечисление <paramref name="values" /> в виде перечисления <see cref="IntFor{TEntity}" />.
+    ///     Represents the enumeration <paramref name="values" /> as an enumeration of <see cref="IntFor{TEntity}" />.
     /// </summary>
-    /// <param name="values">Перечисление значений базовых идентификаторов сущности <typeparamref name="TEntity" />.</param>
-    /// <typeparam name="TEntity">Тип идентифицируемой сущности.</typeparam>
-    /// <returns>Возвращает перечисление экземпляров <see cref="IntFor{TEntity}" />.</returns>
+    /// <param name="values">An enumeration of the values of the base identifiers of the entity <typeparamref name="TEntity" />.</param>
+    /// <typeparam name="TEntity">The type of the identifiable entity.</typeparam>
+    /// <returns>Returns an enumeration of instances of <see cref="IntFor{TEntity}" />.</returns>
     public static IEnumerable<IntFor<TEntity>> AsIdsFor<TEntity>(this IEnumerable<int> values)
     {
         return values.Select(value => new IntFor<TEntity>(value));
     }
 
     /// <summary>
-    ///     Представляет экземпляр сущности <typeparamref name="TEntity" /> в виде <see cref="IntFor{TEntity}" />.
+    ///     Represents an instance of the entity <typeparamref name="TEntity" /> as a <see cref="IntFor{TEntity}" />.
     /// </summary>
-    /// <param name="entity">Экземпляр идентифицируемой сущности.</param>
-    /// <typeparam name="TEntity">Тип идентифицируемой сущности.</typeparam>
-    /// <returns>Возвращает экземпляр <see cref="IntFor{TEntity}" />.</returns>
+    /// <param name="entity">An instance of the identifiable entity.</param>
+    /// <typeparam name="TEntity">The type of the identifiable entity.</typeparam>
+    /// <returns>Returns an instance of <see cref="IntFor{TEntity}" />.</returns>
     public static IntFor<TEntity> AsId<TEntity>(this TEntity entity) where TEntity : class, IEntityWithId<int>
     {
         return new IntFor<TEntity>(entity.Id);
     }
 
     /// <summary>
-    ///     Представляет перечисление экземпляров сущности <typeparamref name="TEntity" /> в виде перечисления
-    ///     <see cref="IntFor{TEntity}" />.
+    ///     Represents an enumeration of instances of the entity <typeparamref name="TEntity" /> as an enumeration of <see cref="IntFor{TEntity}" />.
     /// </summary>
-    /// <param name="entities">Перечисление экземпляров идентифицируемой сущности.</param>
-    /// <typeparam name="TEntity">Тип идентифицируемой сущности.</typeparam>
-    /// <returns>Возвращает перечисление экземпляров <see cref="IntFor{TEntity}" />.</returns>
+    /// <param name="entities">An enumeration of instances of the identifiable entity.</param>
+    /// <typeparam name="TEntity">The type of the identifiable entity.</typeparam>
+    /// <returns>Returns an enumeration of instances of <see cref="IntFor{TEntity}" />.</returns>
     public static IEnumerable<IntFor<TEntity>> AsIds<TEntity>(this IEnumerable<TEntity> entities)
         where TEntity : class, IEntityWithId<int>
     {
@@ -52,11 +51,11 @@ public static class IntIdUtils
     }
 
     /// <summary>
-    ///     Представляет перечисление экземпляров <see cref="IntFor{TEntity}" /> в виде перечисления базовых идентификаторов.
+    ///     Represents an enumeration of instances of <see cref="IntFor{TEntity}" /> as an enumeration of base identifiers.
     /// </summary>
-    /// <param name="ids">Перечисление экземпляров <see cref="IntFor{TEntity}" />.</param>
-    /// <typeparam name="TEntity">Тип идентифицируемой сущности.</typeparam>
-    /// <returns>Возвращает перечисление базовых идентификаторов.</returns>
+    /// <param name="ids">An enumeration of instances of <see cref="IntFor{TEntity}" />.</param>
+    /// <typeparam name="TEntity">The type of the identifiable entity.</typeparam>
+    /// <returns>Returns an enumeration of base identifiers.</returns>
     public static IEnumerable<int> AsIds<TEntity>(this IEnumerable<IntFor<TEntity>> ids)
         where TEntity : class, IEntityWithId<int>
     {

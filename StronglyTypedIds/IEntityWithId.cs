@@ -1,13 +1,13 @@
 ﻿namespace StronglyTypedIds;
 
 /// <summary>
-///     Маркерный интерфейс сущности с идентификатором
+///     Marker interface for an entity with an identifier.
 /// </summary>
-/// <typeparam name="TId">Базовый тип идентификатора сущности</typeparam>
+/// <typeparam name="TId">The base type of the entity's identifier.</typeparam>
 public interface IEntityWithId<out TId>
 {
     /// <summary>
-    ///     Значение базового идентификатора сущности
+    ///     The value of the base identifier of the entity.
     /// </summary>
     TId Id { get; }
 }

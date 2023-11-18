@@ -2,20 +2,20 @@
 
 # StronglyTypedIds
 
-StronglyTypedIds помогает типизировать идентификаторы сущностей для проверки на этапе компиляции.
+StronglyTypedIds helps to type entity identifiers for compile-time checking.
 
-## Какую проблему решаем?
+## What problem are we solving?
 
-Довольно часто в качестве идентификаторов сущностей предметной области выступают Guid, int, long или string.
-Идентификаторы могут быть переданы в качестве аргументов:
+Quite often, Guid, int, long, or string are used as identifiers for domain entities.
+Identifiers can be passed as arguments:
 
 ```
 void AssignContractResponsible(Guid contractId, Guid employeeId);
 ```
 
-В данном примере используется 2 идентификатора. Определить, где из них какой, можно только по имени аргумента. Однажды
-можно ошибиться и передать идентификаторы не в том порядке. Проблема усугубляется, если в предметной области есть
-сущности с похожим названием:
+In this example, 2 identifiers are used. You can only determine which one is which by the name of the argument. One day
+you can make a mistake and pass the identifiers in the wrong order. The problem is exacerbated if there are
+entities with similar names in the domain:
 
 ```
 Contract и Contractor
@@ -23,38 +23,38 @@ Order и OrderTemplate
 PriceList и PricePosition
 ```
 
-Другой пример:
+Another example:
 
 ```
 IDictionary<Guid, Contract> GetContractsByClients(IEnumerable<Guid> clientIds);
 ```
 
-В данном случае в качестве ключа словаря, вероятно, будет выступать идентификатор клиента. Но мы не можем знать этого
-наверняка, если не посмотрим реализацию.
+In this case, the client's identifier will probably act as the key of the dictionary. But we can't know this
+for sure, unless we look at the implementation.
 
-## Решение
+## Solution
 
-В качестве решения предлагается передавать не только значение идентификатора, но и тип идентифицируемой сущности.
+The proposed solution is to pass not only the value of the identifier, but also the type of the identifiable entity.
 
-Так вместо:
+So instead of:
 
 ```
 void AssignContractResponsible(Guid contractId, Guid employeeId);
 ```
 
-Получается:
+It becomes:
 
 ```
 void AssignContractResponsible(GuidFor<Contract> contractId, GuidFor<Person> employeeId);
 ```
 
-А вместо:
+And instead of:
 
 ```
 IDictionary<Guid, Contract> GetContractsByClients(IEnumerable<Guid> clientIds);
 ```
 
-Будет:
+It will be:
 
 ```
 IDictionary<GuidFor<Client>, Contract> GetContractsByClients(IEnumerable<GuidFor<Client>> clientIds);
