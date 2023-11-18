@@ -13,4 +13,214 @@
         <ProjectReference Include="..\StronglyTypedIds\StronglyTypedIds.csproj"/>
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Update="CustomIdTests.CompareToTests.cs">
+        <DependentUpon>CustomIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="CustomIdTests.EqualityOperatorTests.cs">
+        <DependentUpon>CustomIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="CustomIdTests.EqualsTests.cs">
+        <DependentUpon>CustomIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="CustomIdTests.GetHashCodeTests.cs">
+        <DependentUpon>CustomIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="CustomIdTests.InequalityOperatorTests.cs">
+        <DependentUpon>CustomIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="CustomIdTests.ToStringTests.cs">
+        <DependentUpon>CustomIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="CustomIdTests.ValueTests.cs">
+        <DependentUpon>CustomIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="GuidIdTests.CompareToTests.cs">
+        <DependentUpon>GuidIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="GuidIdTests.EqualityOperatorTests.cs">
+        <DependentUpon>GuidIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="GuidIdTests.EqualsTests.cs">
+        <DependentUpon>GuidIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="GuidIdTests.GetHashCodeTests.cs">
+        <DependentUpon>GuidIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="GuidIdTests.GreaterThanOperatorTests.cs">
+        <DependentUpon>GuidIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="GuidIdTests.GreaterThanOrEqualOperatorTests.cs">
+        <DependentUpon>GuidIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="GuidIdTests.InequalityOperatorTests.cs">
+        <DependentUpon>GuidIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="GuidIdTests.LessThanOperatorTests.cs">
+        <DependentUpon>GuidIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="GuidIdTests.LessThanOrEqualOperatorTests.cs">
+        <DependentUpon>GuidIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="GuidIdTests.ToStringTests.cs">
+        <DependentUpon>GuidIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="GuidIdTests.ValueTests.cs">
+        <DependentUpon>GuidIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="IdTests.CompareToTests.cs">
+        <DependentUpon>IdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="IdTests.EqualityOperatorTests.cs">
+        <DependentUpon>IdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="IdTests.EqualsTests.cs">
+        <DependentUpon>IdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="IdTests.GetHashCodeTests.cs">
+        <DependentUpon>IdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="IdTests.InequalityOperatorTests.cs">
+        <DependentUpon>IdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="IdTests.ToStringTests.cs">
+        <DependentUpon>IdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="IdTests.ValueTests.cs">
+        <DependentUpon>IdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="IntIdTests.CompareToTests.cs">
+        <DependentUpon>IntIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="IntIdTests.EqualityOperatorTests.cs">
+        <DependentUpon>IntIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="IntIdTests.EqualsTests.cs">
+        <DependentUpon>IntIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="IntIdTests.GetHashCodeTests.cs">
+        <DependentUpon>IntIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="IntIdTests.GreaterThanOperatorTests.cs">
+        <DependentUpon>IntIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="IntIdTests.GreaterThanOrEqualOperatorTests.cs">
+        <DependentUpon>IntIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="IntIdTests.InequalityOperatorTests.cs">
+        <DependentUpon>IntIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="IntIdTests.LessThanOperatorTests.cs">
+        <DependentUpon>IntIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="IntIdTests.LessThanOrEqualOperatorTests.cs">
+        <DependentUpon>IntIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="IntIdTests.ToStringTests.cs">
+        <DependentUpon>IntIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="IntIdTests.ValueTests.cs">
+        <DependentUpon>IntIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="LongIdTests.CompareToTests.cs">
+        <DependentUpon>LongIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="LongIdTests.EqualityOperatorTests.cs">
+        <DependentUpon>LongIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="LongIdTests.EqualsTests.cs">
+        <DependentUpon>LongIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="LongIdTests.GetHashCodeTests.cs">
+        <DependentUpon>LongIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="LongIdTests.GreaterThanOperatorTests.cs">
+        <DependentUpon>LongIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="LongIdTests.GreaterThanOrEqualOperatorTests.cs">
+        <DependentUpon>LongIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="LongIdTests.InequalityOperatorTests.cs">
+        <DependentUpon>LongIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="LongIdTests.LessThanOperatorTests.cs">
+        <DependentUpon>LongIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="LongIdTests.LessThanOrEqualOperatorTests.cs">
+        <DependentUpon>LongIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="LongIdTests.ToStringTests.cs">
+        <DependentUpon>LongIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="LongIdTests.ValueTests.cs">
+        <DependentUpon>LongIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="UIntIdTests.CompareToTests.cs">
+        <DependentUpon>UIntIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="UIntIdTests.EqualityOperatorTests.cs">
+        <DependentUpon>UIntIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="UIntIdTests.EqualsTests.cs">
+        <DependentUpon>UIntIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="UIntIdTests.GetHashCodeTests.cs">
+        <DependentUpon>UIntIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="UIntIdTests.GreaterThanOperatorTests.cs">
+        <DependentUpon>UIntIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="UIntIdTests.GreaterThanOrEqualOperatorTests.cs">
+        <DependentUpon>UIntIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="UIntIdTests.InequalityOperatorTests.cs">
+        <DependentUpon>UIntIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="UIntIdTests.LessThanOperatorTests.cs">
+        <DependentUpon>UIntIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="UIntIdTests.LessThanOrEqualOperatorTests.cs">
+        <DependentUpon>UIntIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="UIntIdTests.ToStringTests.cs">
+        <DependentUpon>UIntIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="UIntIdTests.ValueTests.cs">
+        <DependentUpon>UIntIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="ULongIdTests.CompareToTests.cs">
+        <DependentUpon>ULongIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="ULongIdTests.EqualityOperatorTests.cs">
+        <DependentUpon>ULongIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="ULongIdTests.EqualsTests.cs">
+        <DependentUpon>ULongIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="ULongIdTests.GetHashCodeTests.cs">
+        <DependentUpon>ULongIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="ULongIdTests.GreaterThanOperatorTests.cs">
+        <DependentUpon>ULongIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="ULongIdTests.GreaterThanOrEqualOperatorTests.cs">
+        <DependentUpon>ULongIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="ULongIdTests.InequalityOperatorTests.cs">
+        <DependentUpon>ULongIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="ULongIdTests.LessThanOperatorTests.cs">
+        <DependentUpon>ULongIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="ULongIdTests.LessThanOrEqualOperatorTests.cs">
+        <DependentUpon>ULongIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="ULongIdTests.ToStringTests.cs">
+        <DependentUpon>ULongIdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="ULongIdTests.ValueTests.cs">
+        <DependentUpon>ULongIdTests.cs</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
 </Project>
