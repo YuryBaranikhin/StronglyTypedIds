@@ -221,6 +221,18 @@
       <Compile Update="ULongIdTests.ValueTests.cs">
         <DependentUpon>ULongIdTests.cs</DependentUpon>
       </Compile>
+      <Compile Update="IdTests.GreaterThanOperatorTests.cs">
+        <DependentUpon>IdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="IdTests.GreaterThanOrEqualToOperatorTests.cs">
+        <DependentUpon>IdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="IdTests.LessThanOperatorTests.cs">
+        <DependentUpon>IdTests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="IdTests.LessThanOrEqualToOperatorTests.cs">
+        <DependentUpon>IdTests.cs</DependentUpon>
+      </Compile>
     </ItemGroup>
 
 </Project>

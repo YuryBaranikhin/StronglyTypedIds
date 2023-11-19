@@ -71,6 +71,7 @@ public class IdFor<TEntity, TId> :
     {
         if (ReferenceEquals(other, null)) return false;
         if (ReferenceEquals(this, other)) return true;
+
         return EqualityComparer<TId>.Default.Equals(Value, other.Value);
     }
 
@@ -111,6 +112,7 @@ public class IdFor<TEntity, TId> :
     {
         if (ReferenceEquals(null, obj)) return false;
         if (ReferenceEquals(this, obj)) return true;
+
         return obj is IEntityId<TEntity, TId> other && Equals(other);
     }
 
@@ -182,8 +184,8 @@ public class IdFor<TEntity, TId> :
     /// </returns>
     public static bool operator >(IdFor<TEntity, TId> x, IdFor<TEntity, TId> y)
     {
-        ArgumentNullException.ThrowIfNull(x);
-        ArgumentNullException.ThrowIfNull(y);
+        if (ReferenceEquals(x, null)) return false;
+        if (ReferenceEquals(y, null)) return false;
 
         return Comparer<TId>.Default.Compare(x.Value, y.Value) > 0;
     }
@@ -199,8 +201,8 @@ public class IdFor<TEntity, TId> :
     /// </returns>
     public static bool operator >=(IdFor<TEntity, TId> x, IdFor<TEntity, TId> y)
     {
-        ArgumentNullException.ThrowIfNull(x);
-        ArgumentNullException.ThrowIfNull(y);
+        if (ReferenceEquals(x, null)) return false;
+        if (ReferenceEquals(y, null)) return false;
 
         return Comparer<TId>.Default.Compare(x.Value, y.Value) >= 0;
     }
@@ -216,8 +218,8 @@ public class IdFor<TEntity, TId> :
     /// </returns>
     public static bool operator <(IdFor<TEntity, TId> x, IdFor<TEntity, TId> y)
     {
-        ArgumentNullException.ThrowIfNull(x);
-        ArgumentNullException.ThrowIfNull(y);
+        if (ReferenceEquals(x, null)) return false;
+        if (ReferenceEquals(y, null)) return false;
 
         return Comparer<TId>.Default.Compare(x.Value, y.Value) < 0;
     }
@@ -233,8 +235,8 @@ public class IdFor<TEntity, TId> :
     /// </returns>
     public static bool operator <=(IdFor<TEntity, TId> x, IdFor<TEntity, TId> y)
     {
-        ArgumentNullException.ThrowIfNull(x);
-        ArgumentNullException.ThrowIfNull(y);
+        if (ReferenceEquals(x, null)) return false;
+        if (ReferenceEquals(y, null)) return false;
 
         return Comparer<TId>.Default.Compare(x.Value, y.Value) <= 0;
     }
