@@ -48,17 +48,20 @@ public partial class IdTests
         }
 
         /// <summary>
-        /// Tests that the greater than or equal to operator returns true when both operands are null.
+        /// Tests that the greater than or equal to operator behaves the same for IdFor<Order, int> and int? when both operands are null.
         /// </summary>
         [Fact]
-        public void ShouldBeTrueWhenBothAreNull()
+        public void ShouldBehaveTheSameAsNullableIntWhenBothOperandsAreNull()
         {
             // arrange
             IdFor<Order, int> id1 = null;
             IdFor<Order, int> id2 = null;
 
+            int? baseId1 = null;
+            int? baseId2 = null;
+
             // act
-            var result = id1 >= id2;
+            var result = id1 >= id2 == baseId1 >= baseId2;
 
             // assert
             result.Should().BeTrue();
