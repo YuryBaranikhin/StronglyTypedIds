@@ -48,7 +48,7 @@ public partial class IdTests
         }
 
         /// <summary>
-        /// Tests that the greater than or equal to operator behaves the same for IdFor<Order, int> and int? when both operands are null.
+        /// Tests that the greater than or equal to operator behaves the same for IdFor and int? when both operands are null.
         /// </summary>
         [Fact]
         public void ShouldBehaveTheSameAsNullableIntWhenBothOperandsAreNull()
