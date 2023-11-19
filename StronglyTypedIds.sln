@@ -19,6 +19,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StronglyTypedIds", "Strongl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StronglyTypedIds.Tests", "StronglyTypedIds.Tests\StronglyTypedIds.Tests.csproj", "{899D46B9-BA8B-4D9D-8980-CC23C995826E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Github", "Github", "{97DA543D-AE26-4CAA-93DF-8E2526DFBF0F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Workflows", "Workflows", "{E0648CFA-E4FB-49AA-8488-69BF2D5FC488}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\codeql-analysis.yml = .github\workflows\codeql-analysis.yml
+		.github\workflows\dotnet-core.yml = .github\workflows\dotnet-core.yml
+		.github\workflows\NuGet-package-deployment.yml = .github\workflows\NuGet-package-deployment.yml
+	EndProjectSection
+EndProject
 
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,5 +43,8 @@ Global
 		{899D46B9-BA8B-4D9D-8980-CC23C995826E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{899D46B9-BA8B-4D9D-8980-CC23C995826E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{899D46B9-BA8B-4D9D-8980-CC23C995826E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E0648CFA-E4FB-49AA-8488-69BF2D5FC488} = {97DA543D-AE26-4CAA-93DF-8E2526DFBF0F}
 	EndGlobalSection
 EndGlobal
