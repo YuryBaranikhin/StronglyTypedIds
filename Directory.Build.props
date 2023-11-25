@@ -14,6 +14,7 @@
     </PropertyGroup>
 
   <PropertyGroup>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <Authors>Yury Baranikhin</Authors>
     <Description>
       StronglyTypedIds is a .NET library that enhances type safety by enabling compile-time checking of entity identifiers. It addresses common issues encountered with using Guid, int, long, or string as identifiers, by strongly typing these identifiers. This approach reduces errors such as passing identifiers in the wrong order or confusing entities with similar names. The library provides a way to associate identifiers not just with their values but also with the types of the entities they identify, thus improving code clarity and reducing runtime errors.
@@ -24,5 +25,9 @@
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\"/>
+  </ItemGroup>
 
 </Project>
