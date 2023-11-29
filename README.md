@@ -63,3 +63,9 @@ IDictionary<GuidFor<Client>, Contract> GetContractsByClients(IEnumerable<GuidFor
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+
+## Support
+
+If you find StronglyTypedIds helpful and would like to support my work, consider [buying me a coffee](https://www.buymeacoffee.com/yurybaranikhin). Thank you for your support!
+
