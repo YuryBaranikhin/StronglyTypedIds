@@ -14,10 +14,11 @@ public partial class IdTests
     public class LessThanOperatorTests
     {
         /// <summary>
-        /// Tests that the less than operator returns false when the left operand is null.
+        /// Tests that the less than operator returns true when the left operand is null.
+        /// This is consistent with CompareTo, where null is less than non-null values.
         /// </summary>
         [Fact]
-        public void ShouldBeFalseWhenLeftIsNull()
+        public void ShouldBeTrueWhenLeftIsNull()
         {
             // arrange
             IdFor<Order, int> id1 = null;
@@ -27,7 +28,7 @@ public partial class IdTests
             var result = id1 < id2;
 
             // assert
-            result.Should().BeFalse();
+            result.Should().BeTrue();
         }
 
         /// <summary>

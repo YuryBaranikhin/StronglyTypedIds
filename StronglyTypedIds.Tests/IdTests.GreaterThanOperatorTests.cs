@@ -31,10 +31,11 @@ public partial class IdTests
         }
 
         /// <summary>
-        /// Tests that the greater than operator returns false when the right operand is null.
+        /// Tests that the greater than operator returns true when the right operand is null.
+        /// This is consistent with CompareTo, where non-null values are greater than null.
         /// </summary>
         [Fact]
-        public void ShouldBeFalseWhenRightIsNull()
+        public void ShouldBeTrueWhenRightIsNull()
         {
             // arrange
             var id1 = new IdFor<Order, int>(1);
@@ -44,7 +45,7 @@ public partial class IdTests
             var result = id1 > id2;
 
             // assert
-            result.Should().BeFalse();
+            result.Should().BeTrue();
         }
 
         /// <summary>

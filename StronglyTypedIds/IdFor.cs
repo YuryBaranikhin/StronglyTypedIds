@@ -185,7 +185,7 @@ public class IdFor<TEntity, TId> :
     public static bool operator >(IdFor<TEntity, TId> x, IdFor<TEntity, TId> y)
     {
         if (ReferenceEquals(x, null)) return false;
-        if (ReferenceEquals(y, null)) return false;
+        if (ReferenceEquals(y, null)) return true;
 
         return Comparer<TId>.Default.Compare(x.Value, y.Value) > 0;
     }
@@ -201,8 +201,8 @@ public class IdFor<TEntity, TId> :
     /// </returns>
     public static bool operator >=(IdFor<TEntity, TId> x, IdFor<TEntity, TId> y)
     {
-        if (ReferenceEquals(x, null)) return false;
-        if (ReferenceEquals(y, null)) return false;
+        if (ReferenceEquals(x, null)) return ReferenceEquals(y, null);
+        if (ReferenceEquals(y, null)) return true;
 
         return Comparer<TId>.Default.Compare(x.Value, y.Value) >= 0;
     }
@@ -218,7 +218,7 @@ public class IdFor<TEntity, TId> :
     /// </returns>
     public static bool operator <(IdFor<TEntity, TId> x, IdFor<TEntity, TId> y)
     {
-        if (ReferenceEquals(x, null)) return false;
+        if (ReferenceEquals(x, null)) return !ReferenceEquals(y, null);
         if (ReferenceEquals(y, null)) return false;
 
         return Comparer<TId>.Default.Compare(x.Value, y.Value) < 0;
@@ -235,7 +235,7 @@ public class IdFor<TEntity, TId> :
     /// </returns>
     public static bool operator <=(IdFor<TEntity, TId> x, IdFor<TEntity, TId> y)
     {
-        if (ReferenceEquals(x, null)) return false;
+        if (ReferenceEquals(x, null)) return true;
         if (ReferenceEquals(y, null)) return false;
 
         return Comparer<TId>.Default.Compare(x.Value, y.Value) <= 0;
